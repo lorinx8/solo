@@ -170,7 +170,8 @@ admin.article = {
                     "articleSignId": signId,
                     "postToCommunity": $("#postToCommunity").prop("checked"),
                     "articleCommentable": $("#articleCommentable").prop("checked"),
-                    "articleViewPwd": $("#viewPwd").val()
+                    "articleViewPwd": $("#viewPwd").val(),
+                    "articlePublishDate": $("#publishDate").val()
                 }
             };
 
