@@ -11,6 +11,10 @@
                   style="height: 500px;width:100%;"></textarea>
     </div>
     <div>
+        <label for="createDate">${aritcleCreateDate}</label>
+        <input id="createDate" type="text" style="width: 156px" onclick="laydate()" class="laydate-icon"/>
+    </div>
+    <div>
         <label>${uploadFileLabel}</label>
         <form id="articleUpload" method="POST" enctype="multipart/form-data">
             <input type="file" name="file" multiple=""/>

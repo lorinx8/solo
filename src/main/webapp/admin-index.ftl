@@ -7,6 +7,7 @@
         <link type="text/css" rel="stylesheet" href="${staticServePath}/css/default-base${miniPostfix}.css?${staticResourceVersion}" />
         <link type="text/css" rel="stylesheet" href="${staticServePath}/css/default-admin${miniPostfix}.css?${staticResourceVersion}" />
         <link type="text/css" rel="stylesheet" href="${staticServePath}/js/lib/CodeMirror/codemirror.css?${staticResourceVersion}" />
+
         <link rel="icon" type="image/png" href="${staticServePath}/favicon.png" />
     </head>
     <body onhashchange="admin.setCurByHash();">
@@ -138,6 +139,7 @@
         <script src="${staticServePath}/js/lib/KindEditor/kindeditor-min.js"></script>
         <script src="${staticServePath}/js/lib/CodeMirror/codemirror.js"></script>
         <script src="${staticServePath}/js/common${miniPostfix}.js"></script>
+        <script src="${staticServePath}/js/lib/laydate/laydate.js" ></script>
         <#if "" == miniPostfix>
         <script src="${staticServePath}/js/admin/admin.js"></script>
         <script src="${staticServePath}/js/admin/editor.js"></script>
