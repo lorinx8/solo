@@ -16,12 +16,17 @@
 package org.b3log.solo.service;
 
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Inject;
+
+import freemarker.template.utility.DateUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.b3log.latke.Keys;
@@ -427,7 +432,8 @@ public class ArticleMgmtService {
      *         "articleCommentable": boolean,
      *         "articleViewPwd": "",
      *         "articleEditorType": "", // optional, preference specified if not exists this key
-     *         "oId": "" // optional, generate it if not exists this key
+     *         "oId": "", // optional, generate it if not exists this key
+     *         "articlePublishDate":"" //optional, default is empty string, that is server current time
      *     }
      * }
      * </pre>
@@ -484,11 +490,25 @@ public class ArticleMgmtService {
             article.put(Article.ARTICLE_VIEW_COUNT, 0);
             // Step 3: Set create/updat date
             final JSONObject preference = preferenceQueryService.getPreference();
-            final Date date = new Date();
 
+            Date date = new Date();
+            String dateString = article.optString(Article.ARTICLE_CREATE_DATE);
+
+            if (!StringUtils.isEmpty(dateString)) {
+                try {
+                    date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dateString);
+                } catch (Exception e) {
+                    LOGGER.log(Level.WARN, "Date text parse error", e);
+                }
+            }
+
+            /*
             if (!article.has(Article.ARTICLE_CREATE_DATE)) {
                 article.put(Article.ARTICLE_CREATE_DATE, date);
             }
+            */
+
+            article.put(Article.ARTICLE_CREATE_DATE, date);
             article.put(Article.ARTICLE_UPDATE_DATE, article.opt(Article.ARTICLE_CREATE_DATE));
             // Step 4: Set put top to false
             article.put(Article.ARTICLE_PUT_TOP, false);

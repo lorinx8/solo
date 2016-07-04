@@ -171,7 +171,7 @@ admin.article = {
                     "postToCommunity": $("#postToCommunity").prop("checked"),
                     "articleCommentable": $("#articleCommentable").prop("checked"),
                     "articleViewPwd": $("#viewPwd").val(),
-                    "articlePublishDate": $("#publishDate").val()
+                    "articleCreateDate": $("#createDate").val()
                 }
             };
 

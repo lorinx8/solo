@@ -11,8 +11,8 @@
                   style="height: 500px;width:100%;"></textarea>
     </div>
     <div>
-        <label for="publishDate">${aritclePublishDate}</label>
-        <input id="publishDate" type="text" style="width: 156px" onclick="laydate()" class="laydate-icon"/>
+        <label for="createDate">${aritcleCreateDate}</label>
+        <input id="createDate" type="text" style="width: 156px" onclick="laydate()" class="laydate-icon"/>
     </div>
     <div>
         <label>${uploadFileLabel}</label>
